@@ -1,8 +1,9 @@
 for(int x=0;x<n/2;x++){
 for(int y=x;y<n-1-x;y++){
-    int temp = A[x][n-y-1];
-    A[x][n-1-y] = A[x][y];
-    A[x][y] = A[y][n-1-x];
-    A[y][n-1-x] = A[n-1-x][n-1-y];  
+                int temp = A[x][n-1-y];
+                A[x][n-1-y] = A[y][x];
+                A[y][x] = A[n-1-x][y];
+                A[n-1-x][y] = A[n-1-y][n-1-x];
+                A[n-1-y][n-1-x] = temp;
 }
 }
