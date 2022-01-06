@@ -1,3 +1,7 @@
+use command git push origin master
+
+
+
 void dfs(Node* curr,Node* node,vector<Node*> &vis)
 {
   vis[node->val] = node;
