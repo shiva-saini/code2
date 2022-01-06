@@ -1,0 +1,40 @@
+void dfs(Node* curr,Node* node,vector<Node*> &vis)
+{
+  vis[node->val] = node;
+  for(auto nei:curr->neighbours)
+  {
+     if(vis[nei->val] == NULL){
+         Node* newnode = new Node(nei->val);
+         (node->neighbours).push_back(newnode);
+        dfs(nei,newnode,vis);
+     }else{
+      (node->neighbours).push_back(vis[nei->val]);
+   }
+
+   
+  }
+
+}
+
+
+Node* clonegraph(Node* node){
+  if(!node) return NULL;
+  vector<Node*> vis(1000,NULL);
+  Node* clone = new Node(node->val);
+  for(auto curr:node->neighbours){
+    if(vis[curr->val] == NULL){
+    Node8* newnode = new Node(curr->val);
+    (clone->neighbours).push_back(newnode);
+     dfs(curr,newnode,vis);
+
+
+   }else{
+    (clone->neighbours).push_back(vis[curr->val]);
+  }
+
+
+  }
+
+  return clone;
+ 
+}
